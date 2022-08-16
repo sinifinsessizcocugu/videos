@@ -1,0 +1,397 @@
+from manim import *
+
+class asd(Scene):
+    def construct(self):
+
+        self.camera.background_color = "#0f0530"
+        
+        
+        ao = Line([-3, 2, 0], [-1.5, 2, 0])
+        bo = Line([-1.5, 2, 0], [1, 2, 0])
+        c = Line([1, 2, 0], [3, 2, 0])
+
+        self.wait()
+        self.play(FadeIn(ao), FadeIn(bo), FadeIn(c))
+        self.wait()
+        self.play(ao.animate.shift(LEFT * 0.2), c.animate.shift(RIGHT * 0.2))
+        self.wait()
+        d = Line([-0.5, 1, 0], [-1.5, 2, 0])
+        e = Line([1, 2, 0], [-0.5, 1, 0])
+
+        self.play(ReplacementTransform(ao, d), ReplacementTransform(c, e))
+        self.wait()
+        f = Group(bo, d, e)
+        self.play(f.animate.shift(DOWN * 3.5, LEFT * 4.6))
+        self.wait()
+
+        g = Line([-3, 2, 0], [-2.5, 2, 0])
+        h = Line([-2.5, 2, 0], [1.5, 2, 0])
+        aa = Line([1.5, 2, 0], [2, 2, 0])
+        ab = Line([2, 2, 0], [3, 2, 0])
+
+        self.play(FadeIn(g), FadeIn(h), FadeIn(aa), FadeIn(ab))
+        self.wait()
+        self.play(g.animate.shift(LEFT * 0.2), aa.animate.shift(RIGHT * 0.2), ab.animate.shift(RIGHT * 0.4))
+        self.wait()
+        
+        ac = Line([-2, 1.8, 0], [-2.5, 2, 0])
+        ad = Line([1.5, 2, 0], [1, 1.8, 0])
+        ae = Line([1, 1.8, 0], [0, 1.8, 0])
+
+        self.play(ReplacementTransform(g, ac), ReplacementTransform(aa, ad), ReplacementTransform(ab, ae))
+        self.wait()
+
+        af = Group(ac, h, ad, ae)
+        self.play(af.animate.shift(DOWN * 3.8, RIGHT * 0.6))
+        self.wait()
+        
+
+
+        ag = Line([-3, 2, 0], [-2, 2, 0])
+        ah = Line([-2, 2, 0], [-1.8, 2, 0])
+        ba = Line([-1.8, 2, 0], [-1.2, 2, 0])
+        bb = Line([-1.2, 2, 0], [-0.2, 2, 0])
+        bc = Line([-0.2, 2, 0], [1.6, 2, 0])
+        bd = Line([1.6, 2, 0], [1.9, 2, 0])
+        be = Line([1.9, 2, 0], [3, 2, 0])
+
+        self.play(FadeIn(ag), FadeIn(ah), FadeIn(ba), FadeIn(bb), FadeIn(bc), FadeIn(bd), FadeIn(be))
+        self.wait()
+        self.play(
+            ag.animate.shift(LEFT * 0.6),
+            ah.animate.shift(LEFT * 0.4),
+            ba.animate.shift(LEFT * 0.2),
+            bc.animate.shift(RIGHT * 0.2),
+            bd.animate.shift(RIGHT * 0.4),
+            be.animate.shift(RIGHT * 0.6),
+        )
+        self.wait()
+        bf = Line([-1.5, 0.6, 0], [-0.9, 1.4, 0])
+        bg = Line([-0.9, 1.4, 0], [-1.2, 1.4, 0])
+        bh = Line([-1.2, 1.4, 0], [-1.2, 2, 0])
+        ca = Line([-0.2, 2, 0], [-0.2, 0.2, 0])
+        cb = Line([-0.2, 0.2, 0], [-0.4, 0, 0])
+        cc = Line([-0.4, 0, 0], [-1.5, 0.6, 0])
+
+        self.play(
+            ReplacementTransform(ag, bf),
+            ReplacementTransform(ah, bg),
+            ReplacementTransform(ba, bh),
+            ReplacementTransform(bc, ca),
+            ReplacementTransform(bd, cb),
+            ReplacementTransform(be, cc)
+        )
+        self.wait()
+        cd = Group(bf, bg, bh, bb, ca, cb, cc)
+        self.play(cd.animate.shift(DOWN * 2.7, RIGHT * 5.8))
+        self.wait()
+        self.play(
+            *[FadeOut(mob)for mob in self.mobjects]
+        )
+        self.wait()
+        
+        ce = Text("Triangle Inequality: None of the sides can be longer than the sum of the others.").scale(0.46).move_to(UP * 3)
+        self.play(Write(ce), run_time=4)
+        
+        cf = Dot([-2, -2, 0]).set_color(PINK)
+        cg = Dot([2, 0, 0]).set_color(PINK)
+        ch = Text("A").scale(0.5).next_to(cf, DOWN).set_color(PINK)
+        da = Text("B").scale(0.5).next_to(cg, DOWN).set_color(PINK)
+        db = Line(cf.get_center(), cg.get_center())
+        dc = Text("L").shift(RIGHT * 0.1, DOWN * 1.4).scale(0.7)
+
+        self.play(Create(db), Write(dc))
+    
+        self.play(FadeIn(cf), FadeIn(cg), FadeIn(ch), FadeIn(da))
+        
+
+        dd = Line([-1, 0.65, 0], [0, 0.65, 0])
+        de = Line([-1, 0.4, 0], [-0.4, 0.4, 0])
+
+        self.play(Create(dd), run_time=0.5)
+        self.play(Create(de), run_time=0.5)
+
+        self.play(dd.animate.rotate(PI / 4).move_to(DOWN * 1.66 + LEFT * 1.64), de.animate.rotate(PI / 5.4).move_to(DOWN * 1.15 + LEFT * 1.04), run_time = 2)
+
+        df = Line([-0.79, -0.99, 0], [0.3, -0.7, 0])
+        self.play(Create(df))
+        self.wait()
+        dg = Line([0.29, -0.71, 0], [0.7, -0.4, 0])
+        self.play(Create(dg))
+        self.wait()
+        qwe = Line([-5.3, 3, 0], [-4.1, 3, 0]).set_color(PURE_RED)
+        qwer = Text("Polygon").set_color(PURE_GREEN).scale(0.43).move_to(UP * 2.6 + LEFT * 4.72)
+        self.play(Create(qwe), Write(qwer), run_time=1.5)
+        
+
+        dh = Group(cf, cg, ch, da, db, dc, dd, de, df, dg)
+        self.play(FadeOut(dh))
+        
+        ea = MathTex("a_1").move_to(LEFT * 2.66 + DOWN * 0.06)
+        eb = MathTex("a_2 + a_3 + ... + a_n").move_to(RIGHT * 0.1)
+        ec = MathTex("+").move_to(LEFT * 2.1)
+        geg = MathTex("= 1").move_to(RIGHT * 2.5)
+        
+        gfgf=Group(ea, eb, ec, geg)
+        self.play(FadeIn(gfgf, shift = DOWN))
+        ed = ea.copy().move_to(LEFT * 4 + DOWN * 1.5)
+        
+        self.play(TransformFromCopy(ea, ed))
+        ef = MathTex("= 0.6").move_to(LEFT * 3 + DOWN * 1.47)
+        self.play(FadeIn(ef)) 
+        self.wait()
+        eg = eb.copy().move_to(RIGHT * 1.3 + DOWN * 1.5)
+        self.play(TransformFromCopy(eb, eg))
+        eh = MathTex("= 0.4").move_to(RIGHT * 4 + DOWN * 1.5)
+        self.play(FadeIn(eh))
+        self.wait()
+        self.play(
+            *[FadeOut(mob)for mob in self.mobjects]
+        )
+        self.wait()
+        fa = Text("From n numbers that add up to 1,").scale(0.6).move_to(UP * 0.4)
+        fb = Text("what's the probability that all of them are less than a half?").scale(0.6).move_to(DOWN * 0.3)
+
+        self.play(Write(fa), run_time=2)
+        self.play(Write(fb), run_time=3.3)
+        self.wait()
+        self.play(
+            *[FadeOut(mob)for mob in self.mobjects]
+        )
+        fc = Tex("n = 3").move_to(UP * 3.3).scale(1.4)
+        self.play(FadeIn(fc, shift=DOWN))
+
+        fd = Tex("(x, y,").move_to(UP * 2.6 + LEFT * 0.3)
+        fe = Tex("z").move_to(UP * 2.59 + RIGHT * 0.56)
+        ff = Tex(")").move_to(UP * 2.6 + RIGHT * 0.76)
+        fg = Group(fd, fe, ff)
+        
+        self.play(FadeIn(fg, shift=DOWN))
+        self.wait(3)
+        fh = Tex("1 - x - y").move_to(UP * 2.58 + RIGHT * 0.55)
+        self.play(
+            FadeIn(fh, shift=UP),
+            FadeOut(fe, shift=UP),
+            fd.animate.shift(LEFT * 0.75),
+            ff.animate.shift(RIGHT * 0.74),
+            run_time=1.5
+        )
+        self.wait()
+        ga = Axes(
+            x_range=[0, 1.5, 1],
+            y_range=[0, 1.5, 1],
+            x_length=3,
+            y_length=3,
+            axis_config={"include_tip": False},
+            x_axis_config={"numbers_to_include": np.arange(1, 1.01, 1)},
+            y_axis_config={"numbers_to_include": np.arange(1, 1.01, 1)}
+        ).move_to(DOWN * 1.5 + LEFT * 2)
+        labels = ga.get_axis_labels(x_label="x", y_label="y")
+        
+        self.play(Create(ga), Create(labels))
+        self.wait()
+        gb = Square().move_to(DOWN * 1.75 + LEFT * 2.3)
+        gb.set_fill(GOLD, opacity=1)
+        self.play(Create(gb))
+        self.wait(4)
+        gc = Polygon([-3.3, -0.75, 0], [-3.3, -2.75, 0], [-1.3, -2.75, 0]).set_color(WHITE)
+        gc.set_fill(GOLD, opacity=1)
+        self.play(FadeIn(gc))
+        self.wait()
+        self.play(FadeOut(gb))
+
+        gd = MathTex("x > 0.5").move_to(LEFT * 5.5).scale(0.8).set_color(RED_C)
+        ge = MathTex("y > 0.5").move_to(LEFT * 5.5 + DOWN).scale(0.8).set_color(RED_C)
+        gf = MathTex("1 - x - y > 0.5").move_to(LEFT * 5.5 + DOWN * 2).scale(0.8).set_color(RED_C)
+        gg = MathTex("x + y < 0.5").move_to(LEFT * 5.5 + DOWN * 2).scale(0.8).set_color(RED_C)
+
+        yyy = Polygon([-3.3, -0.75, 0], [-3.3, -1.75, 0], [-2.3, -1.75, 0]).set_color(WHITE)
+        xxx = Polygon([-2.3, -1.75, 0], [-2.3, -2.75, 0], [-1.3, -2.75, 0]).set_color(WHITE)
+        zzz = Polygon([-3.3, -1.75, 0], [-3.3, -2.75, 0], [-2.3, -2.75, 0]).set_color(WHITE)
+        xxx.set_fill(RED_C, opacity=1)
+        yyy.set_fill(RED_C, opacity=1)
+        zzz.set_fill(RED_C, opacity=1)
+        
+        self.play(Write(gd))
+        self.play(FadeIn(xxx))
+        self.wait()
+        self.play(Write(ge))
+        self.play(FadeIn(yyy))
+        self.wait()
+        self.play(Write(gf), run_time = 1.4)
+        self.play(ReplacementTransform(gf, gg))
+        self.play(FadeIn(zzz))
+        self.wait()
+
+        gh = Polygon([-3.3, -1.75, 0], [-2.3, -1.75, 0], [-2.3, -2.75, 0]).set_color(WHITE)
+        gh.set_fill(GOLD, opacity=1)
+        self.add_foreground_mobject(gh)
+        fgdgd = Polygon([-3.3, -1.75, 0], [-2.3, -1.75, 0], [-2.3, -2.75, 0]).set_color(WHITE)
+        fgdgd.set_fill(GOLD, opacity=1)
+        self.add_foreground_mobject(fgdgd)
+        ha = Polygon([-3.3, -0.75, 0], [-3.3, -2.75, 0], [-1.3, -2.75, 0]).set_color(WHITE)
+        ha.set_fill(RED_C, opacity=1)
+        self.add(ha)
+        self.play(fgdgd.animate.shift(RIGHT * 4.3 + UP * 2.9).scale(0.7))
+        self.play(Create(Line().move_to(RIGHT * 1.5)))
+        self.play(ha.animate.shift(RIGHT * 4 + UP * 0.6).scale(0.7))
+        hb = MathTex("= \\frac{1}{4}").move_to(RIGHT * 3.2)
+        self.play(Write(hb))
+
+        self.wait(3)
+
+        self.play(
+            *[FadeOut(mob)for mob in self.mobjects]
+        )
+        
+        self.set_camera_orientation(phi=75 * DEGREES, theta=-45 * DEGREES)
+        
+        aaa = ThreeDAxes(
+            x_range = [-1.5, 1.5, 1],
+            y_range = [-1.5, 1.5, 1],
+            z_range = [-1.5, 1.5, 1],
+            x_length = 6,
+            y_length = 6,
+            z_length = 6,
+            tips=False
+        )
+        aab = aaa.get_x_axis_label("x").scale(0.6)
+        aac = aaa.get_y_axis_label("y").scale(0.6)
+        aad = aaa.get_z_axis_label("z").scale(0.6)
+
+        
+        self.add(aaa)
+        self.add_fixed_orientation_mobjects(aab,aac,aad)
+        
+        
+        abba = [
+            [0, 0, 0],
+            [0, 0, 2],
+            [0, 2, 0],
+            [2, 0, 0]
+        ]
+
+        aba = [
+            [0,1,2],
+            [0,1,3],
+            [0,2,3],
+            [1,2,3]
+        ]
+        abb = Polyhedron(abba, aba).set_color(GOLD)
+        self.add(abb)
+        self.wait(1)
+
+        aaaa = Polygon([1, 0, 0], [1, 1, 0], [1, 0, 1])
+        
+        self.play(FadeIn(aaaa))
+        self.wait()
+        self.play(
+            *[FadeOut(mob)for mob in self.mobjects]
+        )
+        
+        
+        a12 = MathTex("\\frac{1}{2^{n-1}}")
+        b12 = MathTex("\\frac{n}{2^{n-1}}")
+        c12 = MathTex("1 - ").next_to(b, LEFT)
+
+        self.play(Write(a12), run_time = 2)
+        self.wait()
+        self.play(ReplacementTransform(a12,b12))
+        self.wait()
+        self.play(FadeIn(c12))
+        self.wait(3)
+        
+        
+        acc = Text("Probability Density Function (PDF)").shift(UP * 3.4).scale(0.7)
+        self.play(FadeIn(acc, shift = DOWN))
+        self.wait(8)
+        
+        asd = Tex("for n = 3").next_to(acc, DOWN * 0.9).scale(0.85)
+        self.play(FadeIn(asd, shift = DOWN))
+        self.wait(2)
+        self.play(FadeIn(ga), FadeIn(gc))
+        self.wait
+        acd = Line([-2, -2.75, 0], [-2, -2.05, 0])
+        ace = Line([-2.8, -2.75, 0], [-2.8, -1.25, 0])
+        self.play(ReplacementTransform(acd, ace), run_time = 3)
+        l1 = MathTex("1 - x").scale(0.6).move_to(LEFT * 2.4 + DOWN * 2.2)
+        l2 = MathTex("1 - x").scale(0.6).move_to(LEFT * 2.1 + DOWN * 2.92)
+        self.play(FadeIn(l1), FadeIn(l2))
+        self.wait()
+
+
+        acf = MathTex("f(x) = a(1 - x)").shift(RIGHT * 3 + UP).scale(0.8)
+        self.play(Write(acf), run_time=2)
+        self.wait(8)
+        acg = MathTex(r"\int_0^1 f(x)dx = a - \frac{a}{2} = 1").shift(RIGHT * 3).scale(0.8)
+        self.play(Write(acg), run_time=3.5)
+        self.wait
+        a = MathTex("a = 2").shift(RIGHT * 3 + DOWN).scale(0.8)
+        self.play(Write(a), run_time = 0.8)
+        self.wait()
+
+        b = Group(ga,gc,acd,ace,acf,acg,a,l1,l2)
+        self.play(FadeOut(b))
+        
+
+        ach = Tex("for n = 4").next_to(acc, DOWN * 0.9)
+        self.play(FadeIn(ach, shift = UP), FadeOut(asd, shift = UP))
+        self.wait(20)
+        ada = Tex("for any n").next_to(acc, DOWN * 0.9)
+        self.play(FadeIn(ada, shift = UP), FadeOut(ach, shift = UP))
+        self.wait(2)
+
+        adb = MathTex("f(x) = k(1 - x)^{n - 2}").shift(RIGHT * 3 + UP).scale(0.8)
+        adc = MathTex(r"\int_0^1 f(x)dx = \frac{k}{n - 1} = 1").shift(RIGHT * 3).scale(0.8)
+        add = MathTex("k = n-1").shift(RIGHT * 3 + DOWN).scale(0.8)
+        ade = MathTex("f(x) = (n - 1)(1 - x)^{n - 2}").shift(RIGHT * 3 + UP).scale(0.8)
+
+        self.play(Write(adb), run_time=3)
+        self.wait(2)
+        self.play(Write(adc), run_time=1.5)
+        self.wait(0.5)
+        self.play(Write(add), run_time=0.7)
+        self.wait(2)
+        self.play(ReplacementTransform(adb,ade))
+        self.play(FadeOut(adc), FadeOut(add))
+        self.wait()
+
+        ax = Axes(x_range=[0, 1.5], y_range=[0, 6.8], tips=False, x_length=3, y_length=4).shift(LEFT * 4)
+        a1 = ax.plot(lambda x: 3 * x ** 2 - 6 * x + 3, x_range=[0, 1], color=GOLD)
+        a2 = ax.plot(lambda x: 5 * x ** 4 - 20 * x ** 3 + 30 * x ** 2 - 20 * x + 5, x_range=[0, 1], color=GOLD)
+        a3 = Tex("n = 4").shift(LEFT * 3.4 + UP * 1.6).set_color(GOLD).scale(0.8)
+        a4 = Tex("n = 6").shift(LEFT * 3.4 + UP * 1.6).set_color(GOLD).scale(0.8)
+        a5 = MathTex("f(x) = 3(1 - x)^2").shift(LEFT * 3.4 + UP * 0.9).scale(0.65).set_color(GOLD)
+        a6 = MathTex("f(x) = 5(1 - x)^4").shift(LEFT * 3.4 + UP * 0.9).scale(0.65).set_color(GOLD)
+        
+        self.play(Create(ax))
+        self.play(FadeIn(a3), FadeIn(a5))
+        self.play(Create(a1))
+        self.wait(2)
+        self.play(ReplacementTransform(a5,a6), ReplacementTransform(a3,a4))
+        self.play(ReplacementTransform(a1,a2))
+        self.wait()
+
+        aq = Tex("Mean").scale(0.75).move_to(LEFT * 5.15 + DOWN * 2.5).set_color(GREEN_B)
+        aggg = MathTex("= E(x) =").scale(0.8).move_to(LEFT * 3.6 + DOWN * 2.5)
+        a7 = MathTex(r"\int_0^1 xf(x)dx").scale(0.8).move_to(LEFT * 1.59 + DOWN * 2.56)
+        a8 = MathTex(r"= \frac{1}{n}").scale(0.8).move_to(DOWN * 2.5 + RIGHT * 2.4)
+        a9 = Line([-5.15, -2, 0], [-5.15, -0.7, 0]).set_color(GREEN_B)
+        a10 = MathTex(r"\int_0^1 x(n - 1)(1 - x)^{n - 2}dx").scale(0.8).move_to(LEFT * 0.5 + DOWN * 2.56)
+
+        self.play(Create(a9))
+        self.play(Write(aq))
+        self.wait()
+        self.play(Write(aggg))
+        self.play(Write(a7), run_time = 2)
+        self.wait()
+        self.play(ReplacementTransform(a7, a10))
+        self.wait()
+        self.play(Write(a8))
+        self.wait()
+
+        self.play(
+            *[FadeOut(mob)for mob in self.mobjects]
+        )
+        self.play(Write(Text("Thanks for watching!")))
+        self.wait()
